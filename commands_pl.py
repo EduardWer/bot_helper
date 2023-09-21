@@ -20,7 +20,7 @@ def process_1():
     user_processes = list(user_processes)
     len_process = len(user_processes)
     divided_lists = [user_processes[i:i + 4] for i in range(0, len(user_processes), 4)]
-    print(divided_lists)
+
 
     return divided_lists[0]
 def process_2():
@@ -38,7 +38,7 @@ def process_3():
     user_processes = list(user_processes)
     len_process = len(user_processes)
     divided_lists = [user_processes[i:i + 4] for i in range(0, len(user_processes), 4)]
-    print(divided_lists)
+
     return divided_lists[2]
 def process_4():
     all_processes = psutil.process_iter()
@@ -46,7 +46,6 @@ def process_4():
     user_processes = list(user_processes)
     len_process = len(user_processes)
     divided_lists = [user_processes[i:i + 4] for i in range(0, len(user_processes), 4)]
-    print(divided_lists)
     return divided_lists[3]
 
 
