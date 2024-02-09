@@ -61,7 +61,7 @@ def user_add():
 def get_local_ip():
     import subprocess
     output = subprocess.run(['ipconfig'], capture_output=True, text=True)
-    print(output.stdout)
+
     return output.stdout
 
 if __name__ == "__main__":
