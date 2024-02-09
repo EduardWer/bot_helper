@@ -1,3 +1,6 @@
+import os
+import socket
+
 import psutil
 
 
@@ -55,7 +58,11 @@ def user_add():
     return users
 
 
-    #return user_processes.replace('psutil.Process', '\n')
+def get_local_ip():
+    import subprocess
+    output = subprocess.run(['ipconfig'], capture_output=True, text=True)
+    print(output.stdout)
+    return output.stdout
 
 if __name__ == "__main__":
-     pass
+     get_local_ip()

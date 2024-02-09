@@ -11,16 +11,17 @@ from aiogram.dispatcher import Dispatcher
 import commands_pl
 import marku
 
-users_id = your id
+users_id = 1365677446
 password = ''
 
-tokenAPI = 'your token'
+tokenAPI = '6491267795:AAFBSA1Dk3l_2ql_M2Ru2J6PYNajAypF1vs'
 bot = Bot(tokenAPI)
 dp = Dispatcher(bot)
 
 
 @dp.message_handler(commands=['start'])
 async def start_message(message: types.Message):
+
     await bot.send_message(message.chat.id, 'Добрый день!,\n'
                                             'Для управления сервером обратитесь к администратору \n'
                                             'выдача права на пользование выдаётся только администрацией!')
@@ -35,6 +36,7 @@ async def start_message(message: types.Message):
 
 @dp.message_handler()
 async def Job(message: types.Message):
+
     match message.text:
         case "Температура сервера":
             await bot.send_message(message.chat.id, 'Температура ядер')
@@ -54,6 +56,14 @@ async def Job(message: types.Message):
             os.system('shutdown now')
         case "НЕТ ВЫЙТИ":
             await bot.send_message(message.chat.id, 'Хорошо', reply_markup=marku.start_command)
+        case 'Узнать айпи':
+           answel =  commands_pl.get_local_ip()
+           await bot.send_message(message.chat.id,f"Ваше айпи {answel}")
+
+
+
+
+
 
 
 @dp.callback_query_handler(lambda callback_query: callback_query.data and callback_query.data.startswith('btn'))
